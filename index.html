@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA4 & GTM Test Page</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .external-link {
+            color: green;
+            margin-top: 10px;
+            display: block;
+        }
+        .download-link {
+            color: orange;
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the GA4 & GTM Test Page!</h1>
+
+    <p>Here are some elements to test your tracking setup:</p>
+
+    <button id="primary-button" class="button">Click Me!</button>
+
+    <button id="submit-button" class="button">Submit Form</button>
+
+    <a href="https://www.google.com" target="_blank" class="external-link">Visit Google</a>
+
+    <a href="test.pdf" download class="download-link">Download PDF</a>
+
+    <a href="/another-page.html" class="internal-link">Go to Another Page (Simulated)</a>
+
+    <button id="play-video-button" class="button">Play Video</button>
+
+    <script>
+        // This is just a placeholder for any potential client-side interactions you might want to simulate.
+        document.getElementById('primary-button').addEventListener('click', function() {
+            console.log('Primary button clicked');
+        });
+
+        document.getElementById('submit-button').addEventListener('click', function() {
+            console.log('Submit button clicked');
+        });
+
+        document.getElementById('play-video-button').addEventListener('click', function() {
+            console.log('Play video button clicked');
+        });
+    </script>
+</body>
+</html>
