@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA4 & GTM Test Page</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        .button, .link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+        }
+        .link {
+            color: green;
+            border: 1px solid green;
+        }
+        .external-link {
+            color: orange;
+            border-color: orange;
+        }
+        .download-link {
+            color: purple;
+            border-color: purple;
+        }
+        #video-container {
+            margin-top: 20px;
+        }
+        #progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #eee;
+            margin-top: 10px;
+        }
+        #progress {
+            height: 100%;
+            width: 0%;
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Enhanced GA4 & GTM Test Page!</h1>
+
+    <p>Here are more elements to test your tracking setup:</p>
+
+    <button id="primary-button" class="button" data-button-type="call-to-action">Primary CTA</button>
+    <button id="secondary-button" class="button" data-button-type="info">More Info</button>
+    <button id="submit-button" class="button" data-button-type="form-interaction">Submit Form</button>
+
+    <a href="https://www.google.com" target="_blank" class="link external-link" data-link-type="external">Visit Google</a>
+    <a href="test.pdf" download class="link download-link" data-link-type="download">Download PDF</a>
+    <a href="/page-b.html" class="link internal-link" data-link-type="internal">Go to Page B</a>
+
+    <div id="video-container">
+        <h2>Simple Video Player</h2>
+        <video id="test-video" width="320" height="240" controls>
+            <source src="small.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="progress-bar"><div id="progress"></div></div>
+    </div>
+
+    <script>
+        const primaryButton = document.getElementById('primary-button');
+        const secondaryButton = document.getElementById('secondary-button');
+        const submitButton = document.getElementById('submit-button');
+        const internalLink = document.querySelector('.internal-link');
+        const video = document.getElementById('test-video');
+        const progressBar = document.getElementById('progress-bar');
+        const progress = document.getElementById('progress');
+
+        primaryButton.addEventListener('click', function() { console.log('Primary button clicked'); });
+        secondaryButton.addEventListener('click', function() { console.log('Secondary button clicked'); });
+        submitButton.addEventListener('click', function() { console.log('Submit button clicked'); });
+        internalLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent actual navigation for testing
+            console.log('Internal link to Page B clicked');
+            // You can track this click here
+        });
+
+        if (video) {
+            video.addEventListener('play', function() { console.log('Video started'); });
+            video.addEventListener('pause', function() { console.log('Video paused'); });
+            video.addEventListener('ended', function() { console.log('Video ended'); });
+            video.addEventListener('timeupdate', function() {
+                const percentage = (video.currentTime / video.duration) * 100;
+                progress.style.width = percentage + '%';
+            });
+        }
+    </script>
+</body>
+</html>
